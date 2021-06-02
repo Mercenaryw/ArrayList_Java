@@ -52,13 +52,13 @@ public class Menu
 			nome="";
 			while(true)
 			{
-				System.out.print("\n Digite qual numero para alterar(0=fim)?");
+				System.out.print("\nDigite qual numero para alterar(0=fim)? ");
 				i=tecla.nextInt();
 				if(i>=0 && i<=ln.size())break;
 			}
 			if(i==0)break;
 			nome=""; tecla.nextLine();//limpa buffer teclado
-			System.out.print("\n Digite novo Nome:");
+			System.out.print("\nDigite novo Nome: ");
 			nome=tecla.nextLine();
 			ln.set(i-1,nome);
 			GravarArquivo();
@@ -96,40 +96,40 @@ public class Menu
 	}
 
 //___________________________________________________________
-public static void BarraCarregamento()
-{
-	String anim= "|/-\\";
-    for (int x =0 ; x <= 100 ; x++) 
-    {
-		String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
-		//System.out.print("\u2588");
-		System.out.print(data+"%");
-		//try { Thread.sleep (30); } 
-		//catch (InterruptedException ex) {}
-		Delay(30);
-	}
+	public static void BarraCarregamento()
+	{
+		String anim= "|/-\\";
+		for (int x =0 ; x <= 100 ; x++) 
+		{
+			String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
+			//System.out.print("\u2588");
+			System.out.print(data+"%");
+			//try { Thread.sleep (30); } 
+			//catch (InterruptedException ex) {}
+			Delay(30);
+		}
 		System.out.println("");
 		Delay(1000);
 		LimparConsole();
-}
-//___________________________________________________________
-public static void Delay(int time)
-{
-	try { Thread.sleep(time); } 
-	catch (InterruptedException ex) {}	
-}
-//___________________________________________________________
-public static void LimparConsole() 
-{
-	try
-	{
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 	}
-	catch(Exception ex)
+//___________________________________________________________
+	public static void Delay(int time)
 	{
-		System.out.println("OMG");
+		try { Thread.sleep(time); } 
+		catch (InterruptedException ex) {}	
 	}
-}	
+//___________________________________________________________
+	public static void LimparConsole() 
+	{
+		try
+		{
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		}
+		catch(Exception ex)
+		{
+			System.out.println("OMG");
+		}
+	}	
 //___________________________________________________________
 	public static void GravarArquivo()
 	{
